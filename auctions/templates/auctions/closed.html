@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Closed Listings</h2>
+
+    <div class="container-fluid">
+        <div class="row row-cols-4">
+            {% for listing in listings %}
+            <div class="col ">
+                <div class="card align-items-center" style="width: 18rem;">
+                    <img src="{{ listing.image.url }}" alt="" width="100px" height="100px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ listing.title }}</h5>
+                        <p class="card-text">{{ listing.description|slice:":100" }}</p>
+
+                        <p class="card-text">Sold for: ${{ listing.current_bid }}</p>
+                        <a href="{% url 'listing' listing.id %}" class="btn btn-success mb-3">Go to Auction</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
