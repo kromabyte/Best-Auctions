@@ -308,4 +308,3 @@ def add_or_remove(request, listing_id):
 
     return redirect(reverse("listing", args=[listing_id]))
 
-
